@@ -31,7 +31,6 @@ try:
     img = Image.open(image_path)
     for i in range(int(times)):
         img = reducao_bilinear(img)
-
     img.show()
 except IndexError:
-    print(f"Uso correto: python {os.path.basename(__file__)} <caminho_para_imagem>")
+    print(f"Uso correto: python {os.path.basename(__file__)} <caminho_para_imagem> <numero_de_reduções>")
