@@ -18,6 +18,7 @@ def ampliacao_bilinear(img_path, output_path, new_size):
 
     for y in range(new_height):
         for x in range(new_width):
+#coordenadas correspondentes
             orig_x = x * x_scale
             orig_y = y * y_scale
 
@@ -26,8 +27,10 @@ def ampliacao_bilinear(img_path, output_path, new_size):
             y1 = int(orig_y)
             y2 = min(y1 + 1, original_height - 1)
 
+#mistura
             x_frac = orig_x - x1
             y_frac = orig_y - y1
+
 
             for c in range(image_array.shape[2]):
                 top = (1 - x_frac) * \
@@ -44,6 +47,6 @@ def ampliacao_bilinear(img_path, output_path, new_size):
 
 input_img_path = 'imagens/casa.png'
 output_img_path = 'Resultados/casa_ampliada_bilinear.png'
-new_size = (600, 600)
+new_size = (1200, 1200)
 
 ampliacao_bilinear(input_img_path, output_img_path, new_size)

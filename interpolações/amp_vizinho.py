@@ -19,10 +19,10 @@ def ampliacao_vizinho_mais_proximo(img_path: str, escala = 2) -> Image:
         for j in range(new_width):
             # Calcula qual é a posição do pixel na imagem original que deve ser usada para prencher
             # os novos espaços na nova matriz.
-            x_img_original = int(i / escala)
-            y_img_original = int(j / escala)
+            i_img_original = int(i / escala)
+            j_img_original = int(j / escala)
             # Atribui pixel da imagem original na nova imagem
-            new_img_array[i, j] = img_original_array[x_img_original, y_img_original]
+            new_img_array[i, j] = img_original_array[i_img_original, j_img_original]
     
     print(f"Resolução depois: {new_img_array.shape[0]}X{new_img_array.shape[1]}")
     new_img = Image.fromarray(new_img_array)
