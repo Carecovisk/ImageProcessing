@@ -8,15 +8,14 @@ def image_subtract(Image1, Image2):
     img2 = np.array(Image2)
     return Image.fromarray(img1 - img2)
 
-img_path = sys.argv[1]
-img = Image.open(img_path)
-# Zera aleatoriamente valores da imagem
-modified_img = img.point(lambda i : 0 if randint(1, 100) <= 10 else i)
+img1_path, img2_path = sys.argv[1:]
+img1 = Image.open(img1_path)
+img2 = Image.open(img2_path)
 # Subtração
-diference = image_subtract(img, modified_img)
+diference = image_subtract(img1, img2)
 
-img.show('Original')
+img1.show('Image1')
 time.sleep(1)
-modified_img.show('Modificada')
+img2.show('Image2')
 time.sleep(1)
 diference.show('Diferença')
