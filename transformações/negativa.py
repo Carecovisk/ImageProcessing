@@ -14,12 +14,12 @@ def negativa(image):
         for j in range(width):
             for k in range(bands):
                 image_array[i, j, k] = lookup[image_array[i, j, k]]
+
     return Image.fromarray(image_array)
 
 
 img_path = sys.argv[1]
 img = Image.open(img_path)
 
-# negative_img = img.point(lambda i: 255 - i)
 negative_img = negativa(img)
 negative_img.show()
